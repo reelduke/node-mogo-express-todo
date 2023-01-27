@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      table {
+        border-spacing: 0px;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+        background-color: transparent; /* Change the background-color of table here */
+        text-align: left; /* Change the text-alignment of table here */
+      }
+
+      th {
+        font-weight: bold;
+        border: 1px solid #cccccc; /* Change the border-color of heading here */
+        padding: 8px;
+      }
+
+      td {
+        border: 1px solid #cccccc; /* Change the border-color of cells here */
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sexy-table"></div>
+    <script>
+      const myObj = [
+        {
+          text: 'PART\n  NUMBER',
+          col_index: '0',
+          row_index: '0',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'Alt PN',
+          col_index: '1',
+          row_index: '0',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'DESCRIPTION',
+          col_index: '2',
+          row_index: '0',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'QUANTITY',
+          col_index: '3',
+          row_index: '0',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2010-1-511-2428',
+          col_index: '0',
+          row_index: '1',
+          row_span: '1',
+          col_span: '2',
+        },
+        {
+          text: 'SEAT BELT (AIGLEAZUR MSN2870)',
+          col_index: '2',
+          row_index: '1',
+          row_span: '3',
+          col_span: '1',
+        },
+        {
+          text: '40',
+          col_index: '3',
+          row_index: '1',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2010-1-511-2849',
+          col_index: '0',
+          row_index: '2',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '26',
+          col_index: '3',
+          row_index: '2',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2010-1-511-9846',
+          col_index: '0',
+          row_index: '3',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '1493',
+          col_index: '3',
+          row_index: '3',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2010-5-011-2289',
+          col_index: '0',
+          row_index: '4',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'INFANT SEAT BELT',
+          col_index: '2',
+          row_index: '4',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2224-1-061-2396',
+          col_index: '0',
+          row_index: '5',
+          row_span: '1',
+          col_span: '2',
+        },
+        {
+          text: '13',
+          col_index: '3',
+          row_index: '5',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '502748-401-1023',
+          col_index: '0',
+          row_index: '6',
+          row_span: '1',
+          col_span: '3',
+        },
+        {
+          text: '19',
+          col_index: '3',
+          row_index: '6',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '16310',
+          col_index: '0',
+          row_index: '7',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '16320',
+          col_index: '1',
+          row_index: '7',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'DISCHARGER - ELECTROSTATIC',
+          col_index: '2',
+          row_index: '7',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '21',
+          col_index: '3',
+          row_index: '7',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '195405',
+          col_index: '0',
+          row_index: '8',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '21',
+          col_index: '3',
+          row_index: '8',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '995000',
+          col_index: '0',
+          row_index: '9',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'TOOL-MANUAL RELEASE',
+          col_index: '1',
+          row_index: '9',
+          row_span: '2',
+          col_span: '2',
+        },
+        {
+          text: '11',
+          col_index: '3',
+          row_index: '9',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '100003891',
+          col_index: '0',
+          row_index: '10',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '19',
+          col_index: '3',
+          row_index: '10',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '201056691',
+          col_index: '0',
+          row_index: '11',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'SEAL',
+          col_index: '2',
+          row_index: '11',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '40',
+          col_index: '3',
+          row_index: '11',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '4611375003',
+          col_index: '0',
+          row_index: '12',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'TAB WASHER',
+          col_index: '2',
+          row_index: '12',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '400',
+          col_index: '3',
+          row_index: '12',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '0646C624-20',
+          col_index: '0',
+          row_index: '13',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'SCREW',
+          col_index: '2',
+          row_index: '13',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '32',
+          col_index: '3',
+          row_index: '13',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2-16SC1',
+          col_index: '0',
+          row_index: '14',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'STATIC DISCHARGER',
+          col_index: '2',
+          row_index: '14',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '12',
+          col_index: '3',
+          row_index: '14',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '2439-89-03',
+          col_index: '0',
+          row_index: '15',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'ANTENNA-DME ATC',
+          col_index: '2',
+          row_index: '15',
+          row_span: '9',
+          col_span: '1',
+        },
+        {
+          text: '16',
+          col_index: '3',
+          row_index: '15',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '289-1001',
+          col_index: '0',
+          row_index: '16',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '477',
+          col_index: '3',
+          row_index: '16',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '6644-2R03X2341',
+          col_index: '0',
+          row_index: '17',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '17',
+          col_index: '3',
+          row_index: '17',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '718115-08',
+          col_index: '0',
+          row_index: '18',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '23',
+          col_index: '3',
+          row_index: '18',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '83769H14-17',
+          col_index: '0',
+          row_index: '19',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '77',
+          col_index: '3',
+          row_index: '19',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '83769H16-14',
+          col_index: '0',
+          row_index: '20',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '80',
+          col_index: '3',
+          row_index: '20',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '8JS405064-00',
+          col_index: '0',
+          row_index: '21',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '150',
+          col_index: '3',
+          row_index: '21',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '9MK619321-00',
+          col_index: '0',
+          row_index: '22',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '23',
+          col_index: '3',
+          row_index: '22',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: 'A10086',
+          col_index: '0',
+          row_index: '23',
+          row_span: '1',
+          col_span: '1',
+        },
+        {
+          text: '19019',
+          col_index: '3',
+          row_index: '23',
+          row_span: '1',
+          col_span: '1',
+        },
+      ]
+
+      const drawTable = (tblObject) => {
+        const container = document.getElementById('sexy-table')
+
+        let tbl = document.createElement('table')
+        var tbody = document.createElement('tbody')
+
+        // table header
+        let tr = document.createElement('tr')
+        let thData = tblObject[0]
+        for (let i = 0; i < thData.length; i++) {
+          let th = document.createElement('th')
+          th.setAttribute('rowSpan', thData[i].row_span)
+          th.setAttribute('colSpan', thData[i].col_span)
+          th.appendChild(document.createTextNode(thData[i].text))
+          tr.appendChild(th)
+        }
+        tbody.appendChild(tr)
+
+        // table body
+        for (let i = 1; i < tblObject.length; i++) {
+          let tr = document.createElement('tr')
+          let trData = tblObject[i]
+          for (let j = 0; j < trData.length; j++) {
+            let td = document.createElement('td')
+            td.setAttribute('rowSpan', trData[j].row_span)
+            td.setAttribute('colSpan', trData[j].col_span)
+            td.appendChild(document.createTextNode(trData[j].text))
+            tr.appendChild(td)
+          }
+          tbody.appendChild(tr)
+        }
+        tbl.appendChild(tbody)
+        container.appendChild(tbl)
+      }
+
+      const fixTableStructure = (rawObject) => {
+        // First kill all the lawyers
+
+        // Get some count for reference
+        // maximum number of columns
+        const lastCol = rawObject.reduce((prev, current) => {
+          return prev.col_index < current.col_index ? current : prev
+        })
+        const colCount = Number(lastCol.col_index) + Number(lastCol.col_span)
+
+        // number of Rows
+        const numberOfRows =
+          Number(
+            rawObject.reduce((prev, current) => {
+              return Number(prev.row_index) < Number(current.row_index)
+                ? current
+                : prev
+            }).row_index
+          ) + 1
+
+        console.log('no. or rows', numberOfRows)
+        // let's build the table rows/columns
+        const tblObject = []
+        for (let i = 0; i < numberOfRows; i++) {
+          tblObject.push(rawObject.filter((o) => Number(o.row_index) === i))
+        }
+
+        ////////// BEFORE
+        const reff = JSON.parse(JSON.stringify(tblObject))
+        console.log(reff)
+        ////////// AFTER
+        console.log(tblObject)
+
+        // Then add dummy columns if they are missing (to handle trimming done in the backend)
+        tblObject.map((row, index) => {
+          for (let c = 0; c < colCount; c++) {
+            // check if column exists
+            let col = row.filter((col) => Number(col.col_index) === c)
+
+            if (!col.length) {
+              //missing column
+              let col = {
+                text: '',
+                col_index: `${c}`,
+                row_index: `${index}`,
+                row_span: '1',
+                col_span: '1',
+              }
+              //insert missing column in array
+              row.splice(c, 0, col)
+            }
+          }
+        })
+
+        tblObject.map((row, index) => {
+          for (let c = 0; c < row.length; c++) {
+            // handle row span
+            let rowSpan = row[c].row_span
+            if (rowSpan > 1) {
+              for (let r = 1; r < rowSpan; r++) {
+                if (tblObject[index + r]) {
+                  tblObject[index + r].splice(c, Number(row[c].col_span))
+                }
+              }
+            }
+            // handle column span
+            let colSpan = row[c].col_span
+            if (colSpan > 1) {
+              tblObject[index].splice(c + 1, colSpan - 1)
+            }
+          }
+        })
+
+        return tblObject
+      }
+
+      const tblObject = fixTableStructure(myObj)
+      drawTable(tblObject)
+    </script>
+  </body>
+</html>
