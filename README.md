@@ -1,4 +1,4 @@
-## Move along, nothing to see here folks!
+## Todo or Node Todo
 
 _You'd want to rename .env_sample to .env and replace MONGO_URI variable value with yours_
 
